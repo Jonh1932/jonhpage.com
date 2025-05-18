@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web - Demostración DOM</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="titulo">Bienvenido a Mi Página Web</h1>
+        <button onclick="cambiarColor()">Cambiar Color</button>
+    </header>
+    
+    <main>
+        <section class="contenido">
+            <h2>Contador</h2>
+            <p id="contador">0</p>
+            <button onclick="incrementar()">Incrementar</button>
+        </section>
+
+        <section class="contenido">
+            <h2>Formulario</h2>
+            <form id="formulario">
+                <input type="text" id="nombre" placeholder="Escribe tu nombre">
+                <button type="button" onclick="saludar()">Saludar</button>
+            </form>
+            <p id="saludo"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Mi Página Web</p>
+    </footer>
+
+    <script>
+        // Función para cambiar el color del título
+        function cambiarColor() {
+            const titulo = document.getElementById('titulo');
+            const colores = ['red', 'blue', 'green', 'purple'];
+            const randomColor = colores[Math.floor(Math.random() * colores.length)];
+            titulo.style.color = randomColor;
+        }
+
+        // Función para incrementar el contador
+        let count = 0;
+        function incrementar() {
+            count++;
+            document.getElementById('contador').textContent = count;
+        }
+
+        // Función para saludar
+        function saludar() {
+            const nombre = document.getElementById('nombre').value;
+            const saludoElement = document.getElementById('saludo');
+            if (nombre) {
+                saludoElement.textContent = `¡Hola, ${nombre}!`;
+            } else {
+                saludoElement.textContent = 'Por favor, ingresa tu nombre';
+            }
+        }
+    </script>
+</body>
+</html>

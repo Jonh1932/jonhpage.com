@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JonhPage - Tu Página Web Profesional</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JonhPage - Desarrollador Lua y HTML</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,162 +14,116 @@
 
     body, html {
       height: 100%;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Fira Code', monospace;
       color: white;
-    }
-
-    .video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
       overflow: hidden;
-      z-index: -1;
     }
 
-    .video-background video {
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      opacity: 0.8;
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1f1c2c, #928DAB);
     }
 
-    nav.navbar {
+    .blur-blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at center, #ff00cc, #3333ff);
+      filter: blur(200px);
+      opacity: 0.5;
+      animation: moveBlobs 20s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+
+    .blur-blob:nth-child(2) {
+      left: 70%;
+      top: 50%;
+      background: radial-gradient(circle at center, #00fff0, #0033ff);
+      animation-delay: 5s;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 1rem 2rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .navbar .logo {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-    }
-
-    .navbar .logo i {
-      margin-right: 0.5rem;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #00aced;
-    }
-
-    section {
-      padding: 5rem 2rem;
-      background-color: rgba(0, 0, 0, 0.4);
-    }
-
-    .hero {
       text-align: center;
-      padding-top: 10vh;
+      padding: 2rem;
     }
 
-    .hero h1 {
-      font-size: 3rem;
+    h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, #00ffd5, #0066ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
     }
 
-    .hero p {
+    p {
       font-size: 1.2rem;
+      max-width: 700px;
       margin-bottom: 2rem;
     }
 
-    .cta-button {
-      background-color: #00aced;
-      border: none;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s;
+    .tag {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin: 0.2rem;
+      display: inline-block;
     }
 
-    .cta-button:hover {
-      background-color: #0084b4;
+    .tags {
+      margin-top: 1rem;
+    }
+
+    @keyframes moveBlobs {
+      0% {
+        transform: translate(0px, 0px);
+      }
+      100% {
+        transform: translate(-100px, -100px);
+      }
     }
 
     footer {
-      background-color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
       text-align: center;
-      padding: 2rem;
-      margin-top: 2rem;
-    }
-
-    .social-links a {
-      color: white;
-      margin: 0 0.5rem;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: #00aced;
+      font-size: 0.9rem;
+      color: #ccc;
     }
 
   </style>
 </head>
 <body>
-
-  <!-- Fondo de video -->
-  <div class="video-background">
-    <video autoplay muted loop playsinline>
-      <source src="video.mp4" type="video/mp4" />
-      Tu navegador no soporta videos en HTML5.
-    </video>
+  <div class="background">
+    <div class="blur-blob" style="top: 10%; left: 10%;"></div>
+    <div class="blur-blob"></div>
   </div>
 
-  <!-- Barra de navegación -->
-  <nav class="navbar">
-    <div class="logo">
-      <i class="fas fa-code"></i>
-      JonhPage
+  <div class="content">
+    <h1>Hola, soy Jonh</h1>
+    <p>Desarrollador apasionado por el mundo de los resources, especializado en <strong>.lua</strong> y <strong>HTML</strong> para plataformas como MTA, FiveM o Web.</p>
+    
+    <div class="tags">
+      <span class="tag">Lua Scripting</span>
+      <span class="tag">HTML UI</span>
+      <span class="tag">Frontend Dev</span>
+      <span class="tag">Resources Manager</span>
+      <span class="tag">Open Source</span>
     </div>
-    <ul class="nav-links">
-      <li><a href="#inicio" class="active">Inicio</a></li>
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <!-- Sección principal -->
-  <section id="inicio" class="hero">
-    <h1>Bienvenido a JonhPage</h1>
-    <p>Tu espacio personal como desarrollador y creador de proyectos.</p>
-    <a href="#proyectos" class="cta-button">Ver Proyectos</a>
-  </section>
-
-  <!-- Puedes seguir agregando más secciones aquí como en tu original -->
+  </div>
 
   <footer>
-    <div class="social-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-    <p>&copy; 2025 JonhPage. Todos los derechos reservados.</p>
+    &copy; 2025 JonhPage. Todos los derechos reservados.
   </footer>
 </body>
 </html>

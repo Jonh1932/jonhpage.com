@@ -1,198 +1,129 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JonhPage - Tu Página Web</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Estilos específicos para el video de fondo */
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.8;
-        }
-        
-        .video-background iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JonhPage - Desarrollador Lua y HTML</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Fira Code', monospace;
+      color: white;
+      overflow: hidden;
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1f1c2c, #928DAB);
+    }
+
+    .blur-blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle at center, #ff00cc, #3333ff);
+      filter: blur(200px);
+      opacity: 0.5;
+      animation: moveBlobs 20s infinite alternate ease-in-out;
+      z-index: 0;
+    }
+
+    .blur-blob:nth-child(2) {
+      left: 70%;
+      top: 50%;
+      background: radial-gradient(circle at center, #00fff0, #0033ff);
+      animation-delay: 5s;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(90deg, #00ffd5, #0066ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      margin: 0.2rem;
+      display: inline-block;
+    }
+
+    .tags {
+      margin-top: 1rem;
+    }
+
+    @keyframes moveBlobs {
+      0% {
+        transform: translate(0px, 0px);
+      }
+      100% {
+        transform: translate(-100px, -100px);
+      }
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+  </style>
 </head>
 <body>
-    <!-- Video de fondo -->
-    <div class="video-background">
-        <iframe src="https://www.youtube.com/embed/W_Dpownh-ow?autoplay=1&mute=1&loop=1&playlist=W_Dpownh-ow" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-    </div>
+  <div class="background">
+    <div class="blur-blob" style="top: 10%; left: 10%;"></div>
+    <div class="blur-blob"></div>
+  </div>
 
-    <nav class="navbar">
-        <div class="logo">
-            <i class="fas fa-code"></i>
-            <span>JonhPage</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Bienvenido a mi página web</h1>
-            <p>Soy Jonh y aquí comparto mis proyectos y conocimientos</p>
-            <a href="#proyectos" class="cta-button">Ver Proyectos</a>
-        </div>
-    </section>
+  <div class="content">
+    <h1>Hola, soy Jonh</h1>
+    <p>Desarrollador apasionado por el mundo de los resources, especializado en <strong>.lua</strong> y <strong>HTML</strong> para plataformas como MTA, FiveM o Web.</p>
     
-    <!-- Sección Discord -->
-    <section id="discord" class="discord-section">
-        <h2>¡Únete a mi Discord!</h2>
-        <div class="discord-content">
-            <div class="discord-info">
-                <h3>Comunidad de Desarrolladores</h3>
-                <p>Únete a nuestra comunidad para:</p>
-                <ul>
-                    <li>Aprender juntos</li>
-                    <li>Compartir proyectos</li>
-                    <li>Resolver dudas</li>
-                </ul>
-                <a href="https://discord.gg/s6ChdFMXan" target="_blank" class="discord-button">
-                    <i class="fab fa-discord"></i> Unirse a Discord
-                </a>
-            </div>
-        </div>
-    </section>
+    <div class="tags">
+      <span class="tag">Lua Scripting</span>
+      <span class="tag">HTML UI</span>
+      <span class="tag">Frontend Dev</span>
+      <span class="tag">Resources Manager</span>
+      <span class="tag">Open Source</span>
+    </div>
+  </div>
 
-    <section id="sobre-mi" class="about">
-        <h2>Sobre mí</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Desarrollador web apasionado por crear experiencias digitales únicas</p>
-                <p>Me encanta aprender y compartir conocimiento</p>
-            </div>
-            <div class="skills">
-                <h3>Habilidades</h3>
-                <div class="skill-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-                    <span>Python</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proyectos" class="projects">
-        <h2>Mis Proyectos</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>Proyecto 1</h3>
-                <p>Descripción del proyecto 1</p>
-                <a href="#" class="project-link">Ver más</a>
-            </div>
-            <div class="project-card">
-                <h3>Proyecto 2</h3>
-                <p>Descripción del proyecto 2</p>
-                <a href="#" class="project-link">Ver más</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="contact">
-        <h2>Contacto</h2>
-        <div class="contact-content">
-            <form id="contact-form">
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Mensaje" required></textarea>
-                <button type="submit" class="submit-button">Enviar</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        <p>&copy; 2025 JonhPage. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        // Animación de scroll
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
-
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollY >= sectionTop - 60) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href').slice(1) === current) {
-                        link.classList.add('active');
-                    }
-                });
-            });
-        });
-
-        // Manejo del formulario de contacto
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('¡Gracias por tu mensaje! Te responderé pronto.');
-            e.target.reset();
-        });
-    </script>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Mi Página Web</p>
-    </footer>
-
-    <script>
-        // Función para cambiar el color del título
-        function cambiarColor() {
-            const titulo = document.getElementById('titulo');
-            const colores = ['red', 'blue', 'green', 'purple'];
-            const randomColor = colores[Math.floor(Math.random() * colores.length)];
-            titulo.style.color = randomColor;
-        }
-
-        // Función para incrementar el contador
-        let count = 0;
-        function incrementar() {
-            count++;
-            document.getElementById('contador').textContent = count;
-        }
-
-        // Función para saludar
-        function saludar() {
-            const nombre = document.getElementById('nombre').value;
-            const saludoElement = document.getElementById('saludo');
-            if (nombre) {
-                saludoElement.textContent = `¡Hola, ${nombre}!`;
-            } else {
-                saludoElement.textContent = 'Por favor, ingresa tu nombre';
-            }
-        }
-    </script>
+  <footer>
+    &copy; 2025 JonhPage. Todos los derechos reservados.
+  </footer>
 </body>
 </html>

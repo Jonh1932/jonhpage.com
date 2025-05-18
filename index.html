@@ -3,242 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JonhPage - Desarrollador Web</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <title>JonhPage - Tu Página Web Profesional</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
 
     body, html {
-      font-family: 'Segoe UI', sans-serif;
-      color: #fff;
-      background: #000;
       height: 100%;
-      overflow-x: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
     }
 
     .video-background {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100vw;
       height: 100vh;
-      z-index: -1;
+      width: 100vw;
       overflow: hidden;
+      z-index: -1;
     }
 
-    .video-background iframe {
-      width: 100vw;
-      height: 100vh;
-      border: none;
-      pointer-events: none;
+    .video-background video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      opacity: 0.8;
     }
 
     nav.navbar {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: fixed;
-      width: 100%;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      position: sticky;
       top: 0;
       z-index: 10;
     }
 
-    .logo {
-      font-size: 1.5rem;
+    .navbar .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      font-size: 1.5rem;
+    }
+
+    .navbar .logo i {
+      margin-right: 0.5rem;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 1.5rem;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #fff;
+      color: white;
+      font-weight: 500;
       transition: color 0.3s;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
-      color: #00bfff;
+      color: #00aced;
     }
 
     section {
-      padding: 100px 30px 60px;
-      text-align: center;
+      padding: 5rem 2rem;
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
     .hero {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      text-align: center;
+      padding-top: 10vh;
     }
 
-    .hero-content h1 {
+    .hero h1 {
       font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
 
     .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #00bfff;
+      background-color: #00aced;
+      border: none;
       color: white;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-
-    .project-grid, .about-content, .contact-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .project-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      width: 280px;
-    }
-
-    .skill-tags span {
-      display: inline-block;
-      margin: 5px;
-      padding: 5px 10px;
-      background: #00bfff;
-      border-radius: 5px;
-    }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 5px;
-    }
-
-    .submit-button {
-      background: #00bfff;
-      border: none;
-      padding: 10px 20px;
-      color: white;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
       cursor: pointer;
-      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #0084b4;
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.6);
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 2rem;
+      margin-top: 2rem;
     }
 
     .social-links a {
-      margin: 0 10px;
       color: white;
+      margin: 0 0.5rem;
       font-size: 1.5rem;
+      transition: color 0.3s;
     }
+
+    .social-links a:hover {
+      color: #00aced;
+    }
+
   </style>
 </head>
 <body>
-  <!-- Video de fondo -->
+
+  <!-- Fondo de video -->
   <div class="video-background">
-    <iframe src="https://www.youtube.com/embed/W_Dpownh-ow?autoplay=1&mute=1&loop=1&playlist=W_Dpownh-ow&controls=0&showinfo=0&modestbranding=1" 
-            allow="autoplay; fullscreen"></iframe>
+    <video autoplay muted loop playsinline>
+      <source src="video.mp4" type="video/mp4" />
+      Tu navegador no soporta videos en HTML5.
+    </video>
   </div>
 
-  <!-- Navbar -->
+  <!-- Barra de navegación -->
   <nav class="navbar">
     <div class="logo">
-      <i class="fas fa-code"></i> JonhPage
+      <i class="fas fa-code"></i>
+      JonhPage
     </div>
     <ul class="nav-links">
-      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#inicio" class="active">Inicio</a></li>
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 
-  <!-- Inicio -->
+  <!-- Sección principal -->
   <section id="inicio" class="hero">
-    <div class="hero-content">
-      <h1>Bienvenido a JonhPage</h1>
-      <p>Desarrollador apasionado por crear experiencias únicas</p>
-      <a href="#proyectos" class="cta-button">Ver Proyectos</a>
-    </div>
+    <h1>Bienvenido a JonhPage</h1>
+    <p>Tu espacio personal como desarrollador y creador de proyectos.</p>
+    <a href="#proyectos" class="cta-button">Ver Proyectos</a>
   </section>
 
-  <!-- Discord -->
-  <section id="discord" class="discord-section">
-    <h2>¡Únete a mi Discord!</h2>
-    <p>Conéctate con desarrolladores, comparte ideas y aprende en comunidad.</p>
-    <a href="https://discord.gg/s6ChdFMXan" target="_blank" class="cta-button">
-      <i class="fab fa-discord"></i> Unirse
-    </a>
-  </section>
+  <!-- Puedes seguir agregando más secciones aquí como en tu original -->
 
-  <!-- Sobre mí -->
-  <section id="sobre-mi" class="about">
-    <h2>Sobre mí</h2>
-    <p>Soy un desarrollador autodidacta, apasionado por el diseño web y el aprendizaje continuo.</p>
-    <div class="skills">
-      <h3>Habilidades</h3>
-      <div class="skill-tags">
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>JavaScript</span>
-        <span>Python</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Proyectos -->
-  <section id="proyectos" class="projects">
-    <h2>Mis Proyectos</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Proyecto 1</h3>
-        <p>Descripción del proyecto 1</p>
-        <a href="#" class="cta-button">Ver más</a>
-      </div>
-      <div class="project-card">
-        <h3>Proyecto 2</h3>
-        <p>Descripción del proyecto 2</p>
-        <a href="#" class="cta-button">Ver más</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="contact">
-    <h2>Contacto</h2>
-    <div class="contact-content">
-      <form id="contact-form">
-        <input type="text" placeholder="Nombre" required />
-        <input type="email" placeholder="Email" required />
-        <textarea placeholder="Mensaje" required></textarea>
-        <button type="submit" class="submit-button">Enviar</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
     <div class="social-links">
       <a href="#"><i class="fab fa-github"></i></a>
@@ -247,37 +171,5 @@
     </div>
     <p>&copy; 2025 JonhPage. Todos los derechos reservados.</p>
   </footer>
-
-  <script>
-    // Navegación activa con scroll
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll(".nav-links a");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          if (pageYOffset >= sectionTop - 100) {
-            current = section.getAttribute("id");
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").slice(1) === current) {
-            link.classList.add("active");
-          }
-        });
-      });
-
-      // Contacto
-      document.getElementById("contact-form").addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("¡Gracias por tu mensaje! Me comunicaré contigo pronto.");
-        e.target.reset();
-      });
-    });
-  </script>
 </body>
 </html>

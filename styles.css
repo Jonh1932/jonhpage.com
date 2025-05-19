@@ -1,222 +1,373 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JonhBot - Tu asistente de Discord</title>
-  <meta name="description" content="JonhBot es un bot de Discord con moderación, música y herramientas premium para tu comunidad.">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
-    .btn:hover { transform: scale(1.03); transition: 0.2s; }
-    .faq-answer { display: none; }
-    .faq-item.active .faq-answer { display: block; }
-    .popular-tag {
-      background: #f39c12;
-      color: white;
-      padding: 2px 8px;
-      font-size: 12px;
-      border-radius: 4px;
-      position: absolute;
-      top: -10px;
-      right: -10px;
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0d1117;
+    color: #e6edf3;
+    line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #161b22;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .logo img {
+    height: 40px;
+}
+
+.navbar .nav-links a {
+    color: #e6edf3;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+    color: #58a6ff;
+}
+
+.btn-invite {
+    background-color: #238636;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #1f2937, #0d1117);
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #58a6ff;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-buttons .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    margin-right: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #238636;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #21262d;
+    color: white;
+    border: 1px solid #58a6ff;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Features */
+.features {
+    padding: 3rem 2rem;
+    background-color: #161b22;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #58a6ff;
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.feature-card {
+    background-color: #21262d;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #58a6ff;
+    margin-bottom: 1rem;
+}
+
+/* Premium */
+.premium {
+    padding: 3rem 2rem;
+    background-color: #0d1117;
+    text-align: center;
+}
+
+.premium h2 {
+    color: #58a6ff;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pricing-card {
+    background-color: #21262d;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 300px;
+    position: relative;
+}
+
+.pricing-card.featured {
+    border: 2px solid #58a6ff;
+}
+
+.popular-tag {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #58a6ff;
+    color: #0d1117;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    border-radius: 5px;
+}
+
+.price {
+    font-size: 1.8rem;
+    color: #58a6ff;
+    margin: 1rem 0;
+}
+
+.pricing-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card ul li {
+    padding: 0.3rem 0;
+}
+
+/* Configuración */
+.config-section {
+    padding: 3rem 2rem;
+    background-color: #161b22;
+}
+
+.config-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.config-sidebar {
+    min-width: 200px;
+    background-color: #21262d;
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.config-option {
+    padding: 0.8rem;
+    cursor: pointer;
+    color: white;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.config-option:hover,
+.config-option.active {
+    background-color: #30363d;
+}
+
+.config-content {
+    flex: 1;
+    background-color: #21262d;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: #0d1117;
+    color: white;
+    border: 1px solid #30363d;
+    border-radius: 5px;
+}
+
+/* FAQ */
+.faq {
+    background-color: #0d1117;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.faq h2 {
+    margin-bottom: 2rem;
+    color: #58a6ff;
+}
+
+.faq-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-item {
+    background-color: #21262d;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #161b22;
+    padding: 2rem;
+    color: #e6edf3;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.footer-section h4 {
+    color: #58a6ff;
+    margin-bottom: 1rem;
+}
+
+.footer-section a {
+    color: #c9d1d9;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a:hover {
+    color: #58a6ff;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #30363d;
+    padding-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
     }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <img src="img/logo.png" alt="Logo de JonhBot" />
-      <span>JonhBot</span>
-    </div>
-    <div class="nav-links">
-      <a href="#inicio" class="active">Inicio</a>
-      <a href="#caracteristicas">Características</a>
-      <a href="#comandos">Comandos</a>
-      <a href="#premium">Premium</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contacto" class="btn-invite">Invitar Bot</a>
-    </div>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <header id="inicio" class="hero">
-    <div class="hero-content">
-      <h1>Potencia tu servidor de Discord</h1>
-      <p>JonhBot es un bot multifunción con herramientas de moderación, música y personalización avanzada.</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn btn-primary">Invitar a Discord</a>
-        <a href="#comandos" class="btn btn-secondary">Ver Comandos</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="img/bot-preview.png" alt="Vista previa del bot JonhBot" />
-    </div>
-  </header>
-
-  <!-- Características -->
-  <section id="caracteristicas" class="features">
-    <h2>Características Principales</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <i class="fas fa-shield-alt"></i>
-        <h3>Moderación</h3>
-        <p>Herramientas automáticas para proteger tu comunidad y mantenerla organizada.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-music"></i>
-        <h3>Música</h3>
-        <p>Reproduce música de alta calidad desde múltiples plataformas.</p>
-      </div>
-      <div class="feature-card">
-        <i class="fas fa-cogs"></i>
-        <h3>Personalización</h3>
-        <p>Adapta JonhBot a tus necesidades específicas con comandos y ajustes personalizados.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Premium -->
-  <section id="premium" class="premium">
-    <div class="premium-content">
-      <h2>JonhBot Premium</h2>
-      <p>Desbloquea características exclusivas y apoya el desarrollo del bot.</p>
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <h3>Básico</h3>
-          <div class="price">Gratis</div>
-          <ul>
-            <li>✓ Comandos básicos</li>
-            <li>✓ Moderación estándar</li>
-            <li>✓ Soporte básico</li>
-            <li>✗ Características premium</li>
-          </ul>
-          <a href="#" class="btn">Usar Gratis</a>
-        </div>
-        <div class="pricing-card featured">
-          <div class="popular-tag">Popular</div>
-          <h3>Premium</h3>
-          <div class="price">$4.99<span>/mes</span></div>
-          <ul>
-            <li>✓ Todo en Básico</li>
-            <li>✓ Comandos premium</li>
-            <li>✓ Prioridad en soporte</li>
-            <li>✓ Personalización avanzada</li>
-          </ul>
-          <a href="#" class="btn btn-primary">Obtener Premium</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Configuración -->
-  <section id="configuracion" class="config-section">
-    <h2>Panel de Configuración</h2>
-    <div class="config-container">
-      <div class="config-sidebar">
-        <div class="config-option active" data-tab="general"><i class="fas fa-cog"></i> General</div>
-        <div class="config-option" data-tab="moderacion"><i class="fas fa-shield-alt"></i> Moderación</div>
-        <div class="config-option" data-tab="comandos"><i class="fas fa-terminal"></i> Comandos</div>
-        <div class="config-option" data-tab="bienvenidas"><i class="fas fa-door-open"></i> Bienvenidas</div>
-      </div>
-      <div class="config-content">
-        <div id="general" class="tab-content active">
-          <h3>Configuración General</h3>
-          <div class="form-group">
-            <label for="prefix">Prefijo del Bot</label>
-            <input id="prefix" type="text" value="!" placeholder="Ej: !, ., ?" />
-          </div>
-          <div class="form-group">
-            <label for="lang">Idioma</label>
-            <select id="lang">
-              <option>Español</option>
-              <option>English</option>
-            </select>
-          </div>
-          <button class="btn btn-primary">Guardar Cambios</button>
-        </div>
-        <div id="moderacion" class="tab-content">
-          <h3>Configuración de Moderación</h3>
-          <p>Ajustes personalizados para controlar a los miembros del servidor automáticamente.</p>
-        </div>
-        <div id="comandos" class="tab-content">
-          <h3>Gestión de Comandos</h3>
-          <p>Activa o desactiva comandos según tus preferencias.</p>
-        </div>
-        <div id="bienvenidas" class="tab-content">
-          <h3>Mensajes de Bienvenida</h3>
-          <p>Crea mensajes automáticos para nuevos miembros que se unan.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="faq">
-    <h2>Preguntas Frecuentes</h2>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          <h3>¿Cómo agrego el bot a mi servidor?</h3>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          <p>Haz clic en "Invitar Bot" arriba y elige tu servidor de Discord.</p>
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          <h3>¿Cómo obtengo soporte?</h3>
-          <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="faq-answer">
-          <p>Únete a nuestro servidor de soporte: <a href="https://discord.gg/s6ChdFMXan" target="_blank">Haz clic aquí</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>JonhBot</h4>
-        <p>El mejor bot de Discord para tu comunidad</p>
-      </div>
-      <div class="footer-section">
-        <h4>Enlaces Rápidos</h4>
-        <a href="#inicio">Inicio</a>
-        <a href="#caracteristicas">Características</a>
-        <a href="#premium">Premium</a>
-        <a href="#faq">FAQ</a>
-      </div>
-      <div class="footer-section">
-        <h4>Contacto</h4>
-        <a href="https://discord.gg/s6ChdFMXan" target="_blank">Soporte</a>
-        <a href="#">Términos de Servicio</a>
-        <a href="#">Política de Privacidad</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 JonhBot. Todos los derechos reservados.</p>
-    </div>
-  </footer>
-
-  <script>
-    function toggleFAQ(el) {
-      el.parentElement.classList.toggle("active");
+    .features-grid,
+    .pricing-grid,
+    .config-container {
+        flex-direction: column;
+        align-items: center;
     }
-    function toggleMenu() {
-      document.querySelector(".nav-links").classList.toggle("open");
+
+    .navbar .nav-links {
+        display: none; /* Aquí podrías agregar un menú hamburguesa funcional con JS */
     }
-  </script>
-</body>
-</html>
+}

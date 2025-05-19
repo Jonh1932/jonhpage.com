@@ -1,205 +1,222 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JonhBot - Tu asistente de Discord</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JonhBot - Tu asistente de Discord</title>
+  <meta name="description" content="JonhBot es un bot de Discord con moderación, música y herramientas premium para tu comunidad.">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body { font-family: 'Outfit', sans-serif; scroll-behavior: smooth; }
+    .btn:hover { transform: scale(1.03); transition: 0.2s; }
+    .faq-answer { display: none; }
+    .faq-item.active .faq-answer { display: block; }
+    .popular-tag {
+      background: #f39c12;
+      color: white;
+      padding: 2px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Barra de navegación -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="img/logo.png" alt="JonhBot Logo">
-            <span>JonhBot</span>
-        </div>
-        <div class="nav-links">
-            <a href="#inicio" class="active">Inicio</a>
-            <a href="#caracteristicas">Características</a>
-            <a href="#comandos">Comandos</a>
-            <a href="#premium">Premium</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contacto" class="btn-invite">Invitar Bot</a>
-        </div>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo de JonhBot" />
+      <span>JonhBot</span>
+    </div>
+    <div class="nav-links">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#caracteristicas">Características</a>
+      <a href="#comandos">Comandos</a>
+      <a href="#premium">Premium</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto" class="btn-invite">Invitar Bot</a>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
 
-    <!-- Sección Hero -->
-    <header id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>Potencia tu servidor de Discord</h1>
-            <p>JonhBot es un bot multifunción con herramientas de moderación, diversión y más para mejorar tu comunidad.</p>
-            <div class="hero-buttons">
-                <a href="#" class="btn btn-primary">Invitar a Discord</a>
-                <a href="#" class="btn btn-secondary">Ver Comandos</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="img/bot-preview.png" alt="Vista previa del bot">
-        </div>
-    </header>
+  <!-- Hero -->
+  <header id="inicio" class="hero">
+    <div class="hero-content">
+      <h1>Potencia tu servidor de Discord</h1>
+      <p>JonhBot es un bot multifunción con herramientas de moderación, música y personalización avanzada.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn btn-primary">Invitar a Discord</a>
+        <a href="#comandos" class="btn btn-secondary">Ver Comandos</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="img/bot-preview.png" alt="Vista previa del bot JonhBot" />
+    </div>
+  </header>
 
-    <!-- Sección Características -->
-    <section id="caracteristicas" class="features">
-        <h2>Características Principales</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Moderación</h3>
-                <p>Mantén tu servidor seguro con herramientas avanzadas de moderación.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-music"></i>
-                <h3>Música</h3>
-                <p>Reproduce música de alta calidad en tus canales de voz.</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-cogs"></i>
-                <h3>Personalización</h3>
-                <p>Configura el bot según las necesidades de tu servidor.</p>
-            </div>
-        </div>
-    </section>
+  <!-- Características -->
+  <section id="caracteristicas" class="features">
+    <h2>Características Principales</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Moderación</h3>
+        <p>Herramientas automáticas para proteger tu comunidad y mantenerla organizada.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-music"></i>
+        <h3>Música</h3>
+        <p>Reproduce música de alta calidad desde múltiples plataformas.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-cogs"></i>
+        <h3>Personalización</h3>
+        <p>Adapta JonhBot a tus necesidades específicas con comandos y ajustes personalizados.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sección Premium -->
-    <section id="premium" class="premium">
-        <div class="premium-content">
-            <h2>JonhBot Premium</h2>
-            <p>Desbloquea características exclusivas y ayuda a mantener el bot</p>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Básico</h3>
-                    <div class="price">Gratis</div>
-                    <ul>
-                        <li>✓ Comandos básicos</li>
-                        <li>✓ Moderación estándar</li>
-                        <li>✓ Soporte básico</li>
-                        <li>✗ Características premium</li>
-                    </ul>
-                    <a href="#" class="btn">Usar Gratis</a>
-                </div>
-                <div class="pricing-card featured">
-                    <div class="popular-tag">Popular</div>
-                    <h3>Premium</h3>
-                    <div class="price">$4.99<span>/mes</span></div>
-                    <ul>
-                        <li>✓ Todo en Básico</li>
-                        <li>✓ Comandos premium</li>
-                        <li>✓ Prioridad en soporte</li>
-                        <li>✓ Personalización avanzada</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Obtener Premium</a>
-                </div>
-            </div>
+  <!-- Premium -->
+  <section id="premium" class="premium">
+    <div class="premium-content">
+      <h2>JonhBot Premium</h2>
+      <p>Desbloquea características exclusivas y apoya el desarrollo del bot.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Básico</h3>
+          <div class="price">Gratis</div>
+          <ul>
+            <li>✓ Comandos básicos</li>
+            <li>✓ Moderación estándar</li>
+            <li>✓ Soporte básico</li>
+            <li>✗ Características premium</li>
+          </ul>
+          <a href="#" class="btn">Usar Gratis</a>
         </div>
-    </section>
+        <div class="pricing-card featured">
+          <div class="popular-tag">Popular</div>
+          <h3>Premium</h3>
+          <div class="price">$4.99<span>/mes</span></div>
+          <ul>
+            <li>✓ Todo en Básico</li>
+            <li>✓ Comandos premium</li>
+            <li>✓ Prioridad en soporte</li>
+            <li>✓ Personalización avanzada</li>
+          </ul>
+          <a href="#" class="btn btn-primary">Obtener Premium</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sección Configuración -->
-    <section id="configuracion" class="config-section">
-        <h2>Panel de Configuración</h2>
-        <div class="config-container">
-            <div class="config-sidebar">
-                <div class="config-option active" data-tab="general">
-                    <i class="fas fa-cog"></i> General
-                </div>
-                <div class="config-option" data-tab="moderacion">
-                    <i class="fas fa-shield-alt"></i> Moderación
-                </div>
-                <div class="config-option" data-tab="comandos">
-                    <i class="fas fa-terminal"></i> Comandos
-                </div>
-                <div class="config-option" data-tab="bienvenidas">
-                    <i class="fas fa-door-open"></i> Bienvenidas
-                </div>
-            </div>
-            <div class="config-content">
-                <div id="general" class="tab-content active">
-                    <h3>Configuración General</h3>
-                    <div class="form-group">
-                        <label>Prefijo del Bot</label>
-                        <input type="text" value="!" placeholder="Ej: !, ., ?">
-                    </div>
-                    <div class="form-group">
-                        <label>Idioma</label>
-                        <select>
-                            <option>Español</option>
-                            <option>English</option>
-                        </select>
-                    </div>
-                    <button class="btn btn-primary">Guardar Cambios</button>
-                </div>
-                <div id="moderacion" class="tab-content">
-                    <h3>Configuración de Moderación</h3>
-                    <p>Aquí puedes configurar las opciones de moderación del bot.</p>
-                </div>
-                <div id="comandos" class="tab-content">
-                    <h3>Gestión de Comandos</h3>
-                    <p>Activa o desactiva comandos específicos.</p>
-                </div>
-                <div id="bienvenidas" class="tab-content">
-                    <h3>Mensajes de Bienvenida</h3>
-                    <p>Configura mensajes automáticos para nuevos miembros.</p>
-                </div>
-            </div>
+  <!-- Configuración -->
+  <section id="configuracion" class="config-section">
+    <h2>Panel de Configuración</h2>
+    <div class="config-container">
+      <div class="config-sidebar">
+        <div class="config-option active" data-tab="general"><i class="fas fa-cog"></i> General</div>
+        <div class="config-option" data-tab="moderacion"><i class="fas fa-shield-alt"></i> Moderación</div>
+        <div class="config-option" data-tab="comandos"><i class="fas fa-terminal"></i> Comandos</div>
+        <div class="config-option" data-tab="bienvenidas"><i class="fas fa-door-open"></i> Bienvenidas</div>
+      </div>
+      <div class="config-content">
+        <div id="general" class="tab-content active">
+          <h3>Configuración General</h3>
+          <div class="form-group">
+            <label for="prefix">Prefijo del Bot</label>
+            <input id="prefix" type="text" value="!" placeholder="Ej: !, ., ?" />
+          </div>
+          <div class="form-group">
+            <label for="lang">Idioma</label>
+            <select id="lang">
+              <option>Español</option>
+              <option>English</option>
+            </select>
+          </div>
+          <button class="btn btn-primary">Guardar Cambios</button>
         </div>
-    </section>
+        <div id="moderacion" class="tab-content">
+          <h3>Configuración de Moderación</h3>
+          <p>Ajustes personalizados para controlar a los miembros del servidor automáticamente.</p>
+        </div>
+        <div id="comandos" class="tab-content">
+          <h3>Gestión de Comandos</h3>
+          <p>Activa o desactiva comandos según tus preferencias.</p>
+        </div>
+        <div id="bienvenidas" class="tab-content">
+          <h3>Mensajes de Bienvenida</h3>
+          <p>Crea mensajes automáticos para nuevos miembros que se unan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Sección FAQ -->
-    <section id="faq" class="faq">
-        <h2>Preguntas Frecuentes</h2>
-        <div class="faq-grid">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>¿Cómo agrego el bot a mi servidor?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Simplemente haz clic en el botón "Invitar Bot" en la parte superior de la página y selecciona tu servidor.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>¿Cómo obtengo soporte?</h3>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Únete a nuestro servidor de soporte en Discord: <a href="https://discord.gg/s6ChdFMXan" target="_blank">https://discord.gg/s6ChdFMXan</a></p>
-                </div>
-            </div>
+  <!-- FAQ -->
+  <section id="faq" class="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <h3>¿Cómo agrego el bot a mi servidor?</h3>
+          <i class="fas fa-chevron-down"></i>
         </div>
-    </section>
+        <div class="faq-answer">
+          <p>Haz clic en "Invitar Bot" arriba y elige tu servidor de Discord.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          <h3>¿Cómo obtengo soporte?</h3>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Únete a nuestro servidor de soporte: <a href="https://discord.gg/s6ChdFMXan" target="_blank">Haz clic aquí</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Pie de página -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>JonhBot</h4>
-                <p>El mejor bot de Discord para tu comunidad</p>
-            </div>
-            <div class="footer-section">
-                <h4>Enlaces Rápidos</h4>
-                <a href="#inicio">Inicio</a>
-                <a href="#caracteristicas">Características</a>
-                <a href="#premium">Premium</a>
-                <a href="#faq">FAQ</a>
-            </div>
-            <div class="footer-section">
-                <h4>Contacto</h4>
-                <a href="https://discord.gg/s6ChdFMXan" target="_blank">Soporte</a>
-                <a href="#">Términos de Servicio</a>
-                <a href="#">Política de Privacidad</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 JonhBot. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>JonhBot</h4>
+        <p>El mejor bot de Discord para tu comunidad</p>
+      </div>
+      <div class="footer-section">
+        <h4>Enlaces Rápidos</h4>
+        <a href="#inicio">Inicio</a>
+        <a href="#caracteristicas">Características</a>
+        <a href="#premium">Premium</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contacto</h4>
+        <a href="https://discord.gg/s6ChdFMXan" target="_blank">Soporte</a>
+        <a href="#">Términos de Servicio</a>
+        <a href="#">Política de Privacidad</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 JonhBot. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-    <script src="js/script.js"></script>
+  <script>
+    function toggleFAQ(el) {
+      el.parentElement.classList.toggle("active");
+    }
+    function toggleMenu() {
+      document.querySelector(".nav-links").classList.toggle("open");
+    }
+  </script>
 </body>
 </html>
